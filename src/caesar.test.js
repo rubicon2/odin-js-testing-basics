@@ -28,14 +28,10 @@ test('mixed character case should work', () => {
   expect(caesar('AbCDe', -1)).toBe('ZaBCd');
 });
 
-test('numerical characters will throw an error', () => {
-  expect(() => caesar('abcd1', 1)).toThrow();
-});
-
-test('special characters will throw an error', () => {
-  expect(() => caesar('abcd@', 1)).toThrow();
-});
-
 test('works with whitespace', () => {
   expect(caesar('cheese cake', -1)).toBe('bgddrd bzjd');
+});
+
+test('works with punctuation', () => {
+  expect(caesar('cheese, cake!', -1)).toBe('bgddrd, bzjd!');
 });

@@ -8,14 +8,10 @@ const lowerCodeStart = 97;
 const upperCodeStart = 65;
 
 function caesar(str, shift) {
-  if (!/^[a-zA-Z\s]+$/i.test(str))
-    throw new Error(
-      'Caesar function provided a character that is not alphabetical.',
-    );
   const shiftedChars = [];
   for (let i = 0; i < str.length; i += 1) {
-    // If the character is whitespace, just add it onto shifted chars and go onto the next char
-    if (/\s/.test(str[i])) {
+    // If the character is whitespace, a digit or smybol, just add it onto shifted chars and go onto the next char
+    if (/[\d\W\s]/.test(str[i])) {
       shiftedChars.push(str[i]);
       continue;
     }
